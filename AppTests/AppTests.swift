@@ -75,6 +75,18 @@ class AppTests: XCTestCase {
         XCTAssertTrue(item.error == .required)
     }
     
+    func testIntegerNumberFormItem() {
+        var item = NumberFormItem<Int>()
+
+        item.value = "5"
+        XCTAssertTrue(item.isValid)
+        XCTAssertNil(item.error)
+       
+        item.value = "5.2"
+        XCTAssertFalse(item.isValid)
+        XCTAssertTrue(item.error == .invalidValue)
+    }
+
     func testFormIsValid() {
         let textItem = TextFormItem(text: "aaaa", required: true)
         let emailItem = EmailFormItem(email: "correct@example.org", required: true)
@@ -86,7 +98,7 @@ class AppTests: XCTestCase {
     func testFormIsInvalid() {
         var form = Form(items: [TextFormItem(text: nil, required: true),
                                 EmailFormItem(email: nil, required: true),
-                                NumberFormItem<Int>(value: nil, required: true)])
+                                NumberFormItem<Double>(value: nil, required: true)])
         XCTAssertFalse(form.isValid)
         
         form.items[0].value = "fdsa"

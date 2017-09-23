@@ -18,12 +18,10 @@ struct Form {
 
 extension Form {
     var isValid: Bool {
-        return items.reduce(true, { result, item  in
-            return item.isValid && result
-        })
+        return !items.map { $0.isValid }.contains(false)
     }
     
     var getErrors: [FormItemError] {
-        return []
+        return items.flatMap{ $0.error }
     }
 }
