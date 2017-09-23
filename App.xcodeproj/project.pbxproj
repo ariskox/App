@@ -17,11 +17,9 @@
 		0B6DABE11F76A815001D7D80 /* FormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABE01F76A815001D7D80 /* FormItem.swift */; };
 		0B6DABE31F76AEC4001D7D80 /* String+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABE21F76AEC3001D7D80 /* String+Email.swift */; };
 		0B6DABE51F76AF6F001D7D80 /* String+EmailTLDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABE41F76AF6F001D7D80 /* String+EmailTLDs.swift */; };
-		0B6DABE71F76BD14001D7D80 /* EmailFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABE61F76BD14001D7D80 /* EmailFormItem.swift */; };
-		0B6DABE91F76BD1C001D7D80 /* NumberFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABE81F76BD1C001D7D80 /* NumberFormItem.swift */; };
-		0B6DABEB1F76BD23001D7D80 /* TextFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABEA1F76BD23001D7D80 /* TextFormItem.swift */; };
 		0B6DABED1F76BD44001D7D80 /* FormItemError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABEC1F76BD44001D7D80 /* FormItemError.swift */; };
 		0B6DABEF1F76BDD3001D7D80 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABEE1F76BDD3001D7D80 /* Form.swift */; };
+		0B6DABF11F76D454001D7D80 /* FormItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABF01F76D454001D7D80 /* FormItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,11 +56,9 @@
 		0B6DABE01F76A815001D7D80 /* FormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItem.swift; sourceTree = "<group>"; };
 		0B6DABE21F76AEC3001D7D80 /* String+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Email.swift"; sourceTree = "<group>"; };
 		0B6DABE41F76AF6F001D7D80 /* String+EmailTLDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+EmailTLDs.swift"; sourceTree = "<group>"; };
-		0B6DABE61F76BD14001D7D80 /* EmailFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailFormItem.swift; sourceTree = "<group>"; };
-		0B6DABE81F76BD1C001D7D80 /* NumberFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormItem.swift; sourceTree = "<group>"; };
-		0B6DABEA1F76BD23001D7D80 /* TextFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormItem.swift; sourceTree = "<group>"; };
 		0B6DABEC1F76BD44001D7D80 /* FormItemError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemError.swift; sourceTree = "<group>"; };
 		0B6DABEE1F76BDD3001D7D80 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		0B6DABF01F76D454001D7D80 /* FormItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,10 +115,8 @@
 				0B6DABB41F76A80A001D7D80 /* ViewController.swift */,
 				0B6DABEE1F76BDD3001D7D80 /* Form.swift */,
 				0B6DABE01F76A815001D7D80 /* FormItem.swift */,
+				0B6DABF01F76D454001D7D80 /* FormItems.swift */,
 				0B6DABEC1F76BD44001D7D80 /* FormItemError.swift */,
-				0B6DABE61F76BD14001D7D80 /* EmailFormItem.swift */,
-				0B6DABE81F76BD1C001D7D80 /* NumberFormItem.swift */,
-				0B6DABEA1F76BD23001D7D80 /* TextFormItem.swift */,
 				0B6DABB61F76A80A001D7D80 /* Main.storyboard */,
 				0B6DABB91F76A80A001D7D80 /* Assets.xcassets */,
 				0B6DABBB1F76A80A001D7D80 /* LaunchScreen.storyboard */,
@@ -283,13 +277,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B6DABE91F76BD1C001D7D80 /* NumberFormItem.swift in Sources */,
+				0B6DABF11F76D454001D7D80 /* FormItems.swift in Sources */,
 				0B6DABE51F76AF6F001D7D80 /* String+EmailTLDs.swift in Sources */,
-				0B6DABE71F76BD14001D7D80 /* EmailFormItem.swift in Sources */,
 				0B6DABB51F76A80A001D7D80 /* ViewController.swift in Sources */,
 				0B6DABED1F76BD44001D7D80 /* FormItemError.swift in Sources */,
 				0B6DABE11F76A815001D7D80 /* FormItem.swift in Sources */,
-				0B6DABEB1F76BD23001D7D80 /* TextFormItem.swift in Sources */,
 				0B6DABEF1F76BDD3001D7D80 /* Form.swift in Sources */,
 				0B6DABB31F76A80A001D7D80 /* AppDelegate.swift in Sources */,
 				0B6DABE31F76AEC4001D7D80 /* String+Email.swift in Sources */,

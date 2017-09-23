@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Form {
-    public var items: [FormItem]
+struct Form<T: FormValidator> {
+    public var items: [FormItem<T>]
     
-    init(items: [FormItem]) {
+    init(items: [FormItem<T>]) {
         self.items = items
     }
 }
@@ -25,3 +25,4 @@ extension Form {
         return items.flatMap{ $0.error }
     }
 }
+
