@@ -20,8 +20,7 @@ protocol FormValidator {
     func process(_ value: Any) -> ValidatorResult<T>
 }
 
-
-struct FormItem<Validator: FormValidator> {
+final class FormItem<Validator: FormValidator> {
     var value: Any? {
         get { return internalValue }
         set { self.computeValid(newValue) }
@@ -33,8 +32,10 @@ struct FormItem<Validator: FormValidator> {
         }
     }
     
+    var isValid: Bool { return error == nil }
+
     private(set) var error: FormItemError? = .required
-    private(set) var internalValue: Validator.T?
+    private var internalValue: Validator.T?
     private var validator = Validator()
 
     init(value: Validator.T? = nil, required: Bool = true) {
@@ -42,7 +43,7 @@ struct FormItem<Validator: FormValidator> {
         self.computeValid(value)
     }
     
-    private mutating func computeValid(_ aValue: Any?) {
+    private func computeValid(_ aValue: Any?) {
         guard let aValue = aValue else {
             internalValue = nil
             error = required ? .required : nil
@@ -59,10 +60,3 @@ struct FormItem<Validator: FormValidator> {
         }
     }
 }
-
-extension FormItem {
-    var isValid: Bool {
-        return error == nil
-    }
-}
-

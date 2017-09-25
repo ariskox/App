@@ -22,7 +22,7 @@ class AppTests: XCTestCase {
     }
     
     func testTextFormItem() {
-        var item = TextFormItem(value: nil)
+        let item = TextFormItem(value: nil)
         XCTAssertFalse(item.isValid)
         XCTAssertTrue(item.error == .required)
 
@@ -36,7 +36,7 @@ class AppTests: XCTestCase {
     }
     
     func testEmailFormItem() {
-        var item = EmailFormItem(value: nil)
+        let item = EmailFormItem(value: nil)
         XCTAssertFalse(item.isValid)
         XCTAssertTrue(item.error == .required)
         
@@ -46,11 +46,11 @@ class AppTests: XCTestCase {
         
         item.value = "a test"
         XCTAssertFalse(item.isValid)
-        XCTAssertTrue(item.error == .invalidEmail)
+        XCTAssertTrue(item.error == .invalidValue)
     }
     
     func testNumberFormItem() {
-        var item = NumberFormItem<Double>()
+        let item = NumberFormItem<Double>()
         XCTAssertFalse(item.isValid)
         XCTAssertTrue(item.error == .required)
         
@@ -76,7 +76,7 @@ class AppTests: XCTestCase {
     }
     
     func testIntegerNumberFormItem() {
-        var item = NumberFormItem<Int>()
+        let item = NumberFormItem<Int>()
 
         item.value = "5"
         XCTAssertTrue(item.isValid)
@@ -87,13 +87,13 @@ class AppTests: XCTestCase {
         XCTAssertTrue(item.error == .invalidValue)
     }
 
-//    func testFormIsValid() {
-//        let textItem = TextFormItem(value: "aaaa", required: true)
-//        let emailItem = EmailFormItem(value: "correct@example.org", required: true)
-//        let numberItem = NumberFormItem<Int>(value: 5, required: true)
-//        let form = Form(items: [textItem, emailItem, numberItem] as! [FormItem<_>])
-//        XCTAssertTrue(form.isValid)
-//    }
+    func testFormIsValid() {
+        let textItem = TextFormItem(value: "aaaa", required: true)
+        let emailItem = EmailFormItem(value: "correct@example.org", required: true)
+        let numberItem = NumberFormItem<Int>(value: 5, required: true)
+        let form = Form(items: [textItem, emailItem, numberItem] as! [FormItem<ConcreteValidator<AnyObject>>])
+        XCTAssertTrue(form.isValid)
+    }
 //
 //    func testFormIsInvalid() {
 //        var form = Form(items: [TextFormItem(text: nil, required: true),

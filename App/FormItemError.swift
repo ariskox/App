@@ -10,6 +10,6 @@ import Foundation
 
 enum FormItemError: Error {
     case required
-    case invalidEmail
     case invalidValue
 }
+

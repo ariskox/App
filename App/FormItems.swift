@@ -12,27 +12,34 @@ typealias TextFormItem = FormItem<TextItemValidator>
 typealias EmailFormItem = FormItem<EmailItemValidator>
 typealias NumberFormItem<T> = FormItem<NumberItemValidator<T, NumberFormatter>>
 
-struct TextItemValidator: FormValidator {
-    typealias T = String
-    func process(_ value: Any) -> ValidatorResult<T> {
+
+class ConcreteValidator<A>: FormValidator {
+    typealias T = A
+    required init() { }
+    func process(_ value: Any) -> ValidatorResult<A> {
+        fatalError()
+    }
+}
+
+final class TextItemValidator: ConcreteValidator<String> {
+    override func process(_ value: Any) -> ValidatorResult<T> {
         guard let str = value as? String else { return .error(.invalidValue) }
         return .value(str)
     }
 }
 
-struct EmailItemValidator: FormValidator {
-    typealias T = String
-    func process(_ value: Any) -> ValidatorResult<T> {
-        guard let str = value as? String else { return .error(.invalidValue) }
-        guard str.isEmail() else { return .error(.invalidEmail) }
+final class EmailItemValidator: ConcreteValidator<String> {
+    override func process(_ value: Any) -> ValidatorResult<T> {
+        guard let str = value as? String,
+            str.isEmail() else { return .error(.invalidValue) }
         return .value(str)
     }
 }
 
-struct NumberItemValidator<T, F: NumberFormatter>: FormValidator {
+final class NumberItemValidator<T, F: NumberFormatter>: ConcreteValidator<T> {
     private let formatter = F()
     
-    func process(_ value: Any) -> ValidatorResult<T> {
+    override func process(_ value: Any) -> ValidatorResult<T> {
         if let ourType = value as? T {
             return .value(ourType)
         } else if let str = value as? String, let val = formatter.number(from: str) as? T {
