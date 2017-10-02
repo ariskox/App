@@ -20,6 +20,7 @@
 		0B6DABED1F76BD44001D7D80 /* FormItemError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABEC1F76BD44001D7D80 /* FormItemError.swift */; };
 		0B6DABEF1F76BDD3001D7D80 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABEE1F76BDD3001D7D80 /* Form.swift */; };
 		0B6DABF11F76D454001D7D80 /* FormItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABF01F76D454001D7D80 /* FormItems.swift */; };
+		0BE731A81F824D4F0026B30C /* FormValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE731A71F824D4F0026B30C /* FormValidators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		0B6DABEC1F76BD44001D7D80 /* FormItemError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemError.swift; sourceTree = "<group>"; };
 		0B6DABEE1F76BDD3001D7D80 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		0B6DABF01F76D454001D7D80 /* FormItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItems.swift; sourceTree = "<group>"; };
+		0BE731A71F824D4F0026B30C /* FormValidators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				0B6DABB41F76A80A001D7D80 /* ViewController.swift */,
 				0B6DABEE1F76BDD3001D7D80 /* Form.swift */,
 				0B6DABE01F76A815001D7D80 /* FormItem.swift */,
+				0BE731A71F824D4F0026B30C /* FormValidators.swift */,
 				0B6DABF01F76D454001D7D80 /* FormItems.swift */,
 				0B6DABEC1F76BD44001D7D80 /* FormItemError.swift */,
 				0B6DABB61F76A80A001D7D80 /* Main.storyboard */,
@@ -284,6 +287,7 @@
 				0B6DABE11F76A815001D7D80 /* FormItem.swift in Sources */,
 				0B6DABEF1F76BDD3001D7D80 /* Form.swift in Sources */,
 				0B6DABB31F76A80A001D7D80 /* AppDelegate.swift in Sources */,
+				0BE731A81F824D4F0026B30C /* FormValidators.swift in Sources */,
 				0B6DABE31F76AEC4001D7D80 /* String+Email.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

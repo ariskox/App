@@ -9,9 +9,9 @@
 import Foundation
 
 final class Form {
-    public var items: [FormItem<ConcreteValidator<AnyObject>>]
+    public var items: [FormItem]
 
-    init(items: [FormItem<ConcreteValidator<AnyObject>>]) {
+    init(items: [FormItem]) {
         self.items = items
     }
 }

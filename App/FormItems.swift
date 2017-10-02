@@ -8,44 +8,106 @@
 
 import Foundation
 
-typealias TextFormItem = FormItem<TextItemValidator>
-typealias EmailFormItem = FormItem<EmailItemValidator>
-typealias NumberFormItem<T> = FormItem<NumberItemValidator<T, NumberFormatter>>
 
-
-class ConcreteValidator<A>: FormValidator {
-    typealias T = A
-    required init() { }
-    func process(_ value: Any) -> ValidatorResult<A> {
-        fatalError()
+struct TextFormItem: FormItem {
+    var value: Any? {
+        get { return internalValue }
+        set { self.computeValid(newValue) }
     }
-}
-
-final class TextItemValidator: ConcreteValidator<String> {
-    override func process(_ value: Any) -> ValidatorResult<T> {
-        guard let str = value as? String else { return .error(.invalidValue) }
-        return .value(str)
-    }
-}
-
-final class EmailItemValidator: ConcreteValidator<String> {
-    override func process(_ value: Any) -> ValidatorResult<T> {
-        guard let str = value as? String,
-            str.isEmail() else { return .error(.invalidValue) }
-        return .value(str)
-    }
-}
-
-final class NumberItemValidator<T, F: NumberFormatter>: ConcreteValidator<T> {
-    private let formatter = F()
+    var required: Bool = true
     
-    override func process(_ value: Any) -> ValidatorResult<T> {
-        if let ourType = value as? T {
-            return .value(ourType)
-        } else if let str = value as? String, let val = formatter.number(from: str) as? T {
-            return .value(val)
+    private(set) var error: FormItemError? = .required
+    private var internalValue: String?
+    private var validator = TextItemValidator()
+    
+    init(value: String? = nil, required: Bool = true) {
+        self.required = required
+        self.computeValid(value)
+    }
+    
+    private mutating func computeValid(_ aValue: Any?) {
+        guard let aValue = aValue else {
+            internalValue = nil
+            error = required ? .required : nil
+            return
         }
-        return .error(.invalidValue)
+        
+        switch validator.process(aValue) {
+        case .error(let error):
+            internalValue = nil
+            self.error = error
+        case .value(let value):
+            self.internalValue = value
+            self.error = nil
+        }
+    }
+}
+
+struct EmailFormItem: FormItem {
+    var value: Any? {
+        get { return internalValue }
+        set { self.computeValid(newValue) }
+    }
+    var required: Bool = true
+    
+    private(set) var error: FormItemError? = .required
+    private var internalValue: String?
+    private var validator = EmailItemValidator()
+    
+    init(value: String? = nil, required: Bool = true) {
+        self.required = required
+        self.computeValid(value)
+    }
+    
+    private mutating func computeValid(_ aValue: Any?) {
+        guard let aValue = aValue else {
+            internalValue = nil
+            error = required ? .required : nil
+            return
+        }
+        
+        switch validator.process(aValue) {
+        case .error(let error):
+            internalValue = nil
+            self.error = error
+        case .value(let value):
+            self.internalValue = value
+            self.error = nil
+        }
+    }
+}
+
+struct NumberFormItem<T>: FormItem {
+    var value: Any? {
+        get { return internalValue }
+        set { self.computeValid(newValue) }
+    }
+    var required: Bool = true
+    
+    private(set) var error: FormItemError? = .required
+    private var internalValue: T?
+    private var validator = NumberItemValidator<T>()
+    
+    init(value: T? = nil, required: Bool = true) {
+        self.required = required
+        self.computeValid(value)
+    }
+    
+    private mutating func computeValid(_ aValue: Any?) {
+        guard let aValue = aValue else {
+            internalValue = nil
+            error = required ? .required : nil
+            return
+        }
+        
+        switch validator.process(aValue) {
+        case .error(let error):
+            internalValue = nil
+            self.error = error
+        case .value(let value):
+            self.internalValue = value
+            self.error = nil
+        }
     }
 }
 
