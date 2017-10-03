@@ -8,31 +8,35 @@
 
 import Foundation
 
-enum ValidatorResult<T> {
-    case error(FormItemError)
-    case value(T)
-}
-
 protocol FormValidator {
     associatedtype T
     init()
-    func process(_ value: Any) -> ValidatorResult<T>
+    func process(_ value: Any?) -> (T?, FormItemError?)
+}
+
+enum FormItemError: Error {
+    case required
+    case invalidValue
 }
 
 struct TextItemValidator: FormValidator {
     typealias T = String
-    func process(_ value: Any) -> ValidatorResult<T> {
-        guard let str = value as? String else { return .error(.invalidValue) }
-        return .value(str)
+    func process(_ value: Any?) -> (String?, FormItemError?) {
+        guard let str = value as? String else {
+            return (nil, .invalidValue)
+        }
+        return (str, nil)
     }
 }
 
 struct EmailItemValidator: FormValidator {
     typealias T = String
-    func process(_ value: Any) -> ValidatorResult<T> {
+    func process(_ value: Any?) -> (String?, FormItemError?) {
         guard let str = value as? String,
-            str.isEmail() else { return .error(.invalidValue) }
-        return .value(str)
+            str.isEmail() else {
+                return (nil, .invalidValue)
+        }
+        return (str, nil)
     }
 }
 
@@ -47,12 +51,12 @@ struct NumberItemValidator<T>: FormValidator {
         self.formatter = formatter
     }
     
-    func process(_ value: Any) -> ValidatorResult<T> {
+    func process(_ value: Any?) -> (T?, FormItemError?) {
         if let ourType = value as? T {
-            return .value(ourType)
+            return (ourType, nil)
         } else if let str = value as? String, let val = formatter.number(from: str) as? T {
-            return .value(val)
+            return (val, nil)
         }
-        return .error(.invalidValue)
+        return (nil, .invalidValue)
     }
 }

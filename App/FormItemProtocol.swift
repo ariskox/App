@@ -1,5 +1,5 @@
 //
-//  FormItem.swift
+//  FormItemProtocol.swift
 //  App
 //
 //  Created by Aris Koxaras on 23/09/2017.
@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-protocol FormItem {
+protocol FormItemProtocol {
     var value: Any? { get set }
     var required: Bool { get }
     var error: FormItemError? { get }
 }
 
-extension FormItem {
+extension FormItemProtocol {
     var isValid: Bool {
         return error == nil
     }

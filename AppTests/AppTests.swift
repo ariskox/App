@@ -95,7 +95,7 @@ class AppTests: XCTestCase {
     }
 
     func testFormIsInvalid() {
-        var form = Form(items: [TextFormItem(value: nil, required: true),
+        let form = Form(items: [TextFormItem(value: nil, required: true),
                                 EmailFormItem(value: nil, required: true),
                                 NumberFormItem<Double>(value: nil, required: true)])
         XCTAssertFalse(form.isValid)

@@ -9,9 +9,9 @@
 import Foundation
 
 final class Form {
-    public var items: [FormItem]
+    public var items: [FormItemProtocol]
 
-    init(items: [FormItem]) {
+    init(items: [FormItemProtocol]) {
         self.items = items
     }
 }

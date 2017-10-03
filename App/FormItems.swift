@@ -8,14 +8,12 @@
 
 import Foundation
 
-
-struct TextFormItem: FormItem {
+struct TextFormItem: FormItemProtocol {
     var value: Any? {
         get { return internalValue }
         set { self.computeValid(newValue) }
     }
-    var required: Bool = true
-    
+    private(set) var required: Bool = true
     private(set) var error: FormItemError? = .required
     private var internalValue: String?
     private var validator = TextItemValidator()
@@ -31,24 +29,16 @@ struct TextFormItem: FormItem {
             error = required ? .required : nil
             return
         }
-        
-        switch validator.process(aValue) {
-        case .error(let error):
-            internalValue = nil
-            self.error = error
-        case .value(let value):
-            self.internalValue = value
-            self.error = nil
-        }
+        (internalValue, error) = validator.process(aValue)
     }
 }
 
-struct EmailFormItem: FormItem {
+struct EmailFormItem: FormItemProtocol {
     var value: Any? {
         get { return internalValue }
         set { self.computeValid(newValue) }
     }
-    var required: Bool = true
+    private(set) var required: Bool = true
     
     private(set) var error: FormItemError? = .required
     private var internalValue: String?
@@ -66,24 +56,17 @@ struct EmailFormItem: FormItem {
             return
         }
         
-        switch validator.process(aValue) {
-        case .error(let error):
-            internalValue = nil
-            self.error = error
-        case .value(let value):
-            self.internalValue = value
-            self.error = nil
-        }
+        (internalValue, error) = validator.process(aValue)
     }
 }
 
-struct NumberFormItem<T>: FormItem {
+struct NumberFormItem<T>: FormItemProtocol {
     var value: Any? {
         get { return internalValue }
         set { self.computeValid(newValue) }
     }
-    var required: Bool = true
-    
+
+    private(set) var required: Bool = true
     private(set) var error: FormItemError? = .required
     private var internalValue: T?
     private var validator = NumberItemValidator<T>()
@@ -99,15 +82,6 @@ struct NumberFormItem<T>: FormItem {
             error = required ? .required : nil
             return
         }
-        
-        switch validator.process(aValue) {
-        case .error(let error):
-            internalValue = nil
-            self.error = error
-        case .value(let value):
-            self.internalValue = value
-            self.error = nil
-        }
+        (internalValue, error) = validator.process(aValue)
     }
 }
-
