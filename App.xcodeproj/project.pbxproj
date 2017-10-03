@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B2AEFB31F83672500977CB6 /* TextFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AEFB21F83672500977CB6 /* TextFormItem.swift */; };
+		0B2AEFB51F83673D00977CB6 /* EmailFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AEFB41F83673D00977CB6 /* EmailFormItem.swift */; };
+		0B2AEFB71F83674300977CB6 /* NumberFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AEFB61F83674300977CB6 /* NumberFormItem.swift */; };
 		0B6DABB31F76A80A001D7D80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABB21F76A80A001D7D80 /* AppDelegate.swift */; };
 		0B6DABB51F76A80A001D7D80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABB41F76A80A001D7D80 /* ViewController.swift */; };
 		0B6DABB81F76A80A001D7D80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B6DABB61F76A80A001D7D80 /* Main.storyboard */; };
@@ -18,8 +21,6 @@
 		0B6DABE31F76AEC4001D7D80 /* String+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABE21F76AEC3001D7D80 /* String+Email.swift */; };
 		0B6DABE51F76AF6F001D7D80 /* String+EmailTLDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABE41F76AF6F001D7D80 /* String+EmailTLDs.swift */; };
 		0B6DABEF1F76BDD3001D7D80 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABEE1F76BDD3001D7D80 /* Form.swift */; };
-		0B6DABF11F76D454001D7D80 /* FormItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DABF01F76D454001D7D80 /* FormItems.swift */; };
-		0BE731A81F824D4F0026B30C /* FormValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE731A71F824D4F0026B30C /* FormValidators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B2AEFB21F83672500977CB6 /* TextFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormItem.swift; sourceTree = "<group>"; };
+		0B2AEFB41F83673D00977CB6 /* EmailFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailFormItem.swift; sourceTree = "<group>"; };
+		0B2AEFB61F83674300977CB6 /* NumberFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormItem.swift; sourceTree = "<group>"; };
 		0B6DABAF1F76A80A001D7D80 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B6DABB21F76A80A001D7D80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B6DABB41F76A80A001D7D80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,8 +61,6 @@
 		0B6DABE21F76AEC3001D7D80 /* String+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Email.swift"; sourceTree = "<group>"; };
 		0B6DABE41F76AF6F001D7D80 /* String+EmailTLDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+EmailTLDs.swift"; sourceTree = "<group>"; };
 		0B6DABEE1F76BDD3001D7D80 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
-		0B6DABF01F76D454001D7D80 /* FormItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItems.swift; sourceTree = "<group>"; };
-		0BE731A71F824D4F0026B30C /* FormValidators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,10 +115,11 @@
 				0B6DABE41F76AF6F001D7D80 /* String+EmailTLDs.swift */,
 				0B6DABB21F76A80A001D7D80 /* AppDelegate.swift */,
 				0B6DABB41F76A80A001D7D80 /* ViewController.swift */,
-				0B6DABEE1F76BDD3001D7D80 /* Form.swift */,
 				0B6DABE01F76A815001D7D80 /* FormItemProtocol.swift */,
-				0BE731A71F824D4F0026B30C /* FormValidators.swift */,
-				0B6DABF01F76D454001D7D80 /* FormItems.swift */,
+				0B2AEFB21F83672500977CB6 /* TextFormItem.swift */,
+				0B2AEFB41F83673D00977CB6 /* EmailFormItem.swift */,
+				0B2AEFB61F83674300977CB6 /* NumberFormItem.swift */,
+				0B6DABEE1F76BDD3001D7D80 /* Form.swift */,
 				0B6DABB61F76A80A001D7D80 /* Main.storyboard */,
 				0B6DABB91F76A80A001D7D80 /* Assets.xcassets */,
 				0B6DABBB1F76A80A001D7D80 /* LaunchScreen.storyboard */,
@@ -277,13 +280,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B6DABF11F76D454001D7D80 /* FormItems.swift in Sources */,
 				0B6DABE51F76AF6F001D7D80 /* String+EmailTLDs.swift in Sources */,
 				0B6DABB51F76A80A001D7D80 /* ViewController.swift in Sources */,
+				0B2AEFB51F83673D00977CB6 /* EmailFormItem.swift in Sources */,
+				0B2AEFB31F83672500977CB6 /* TextFormItem.swift in Sources */,
 				0B6DABE11F76A815001D7D80 /* FormItemProtocol.swift in Sources */,
 				0B6DABEF1F76BDD3001D7D80 /* Form.swift in Sources */,
 				0B6DABB31F76A80A001D7D80 /* AppDelegate.swift in Sources */,
-				0BE731A81F824D4F0026B30C /* FormValidators.swift in Sources */,
+				0B2AEFB71F83674300977CB6 /* NumberFormItem.swift in Sources */,
 				0B6DABE31F76AEC4001D7D80 /* String+Email.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

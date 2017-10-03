@@ -20,3 +20,14 @@ extension FormItemProtocol {
         return error == nil
     }
 }
+
+protocol FormItemValidator {
+    associatedtype T
+    init()
+    func process(_ value: Any?, required: Bool) -> (T?, FormItemError?)
+}
+
+enum FormItemError: Error {
+    case required
+    case invalidValue
+}
