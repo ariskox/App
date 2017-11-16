@@ -24,3 +24,8 @@ class ViewController: UIViewController {
 
 }
 
+class FormItemView: UIView {
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
+
+}
